@@ -25,9 +25,8 @@ def chat():
         reply = response.choices[0].message.content.strip()
         return jsonify({"reply": reply})
     except Exception as e:
-        print("FOUT bij OpenAI:", e)
         return jsonify({"reply": "Er ging iets mis bij het ophalen van een reactie."})
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5000))
+    port = int(os.environ.get("PORT", 10000))
     app.run(host="0.0.0.0", port=port)
